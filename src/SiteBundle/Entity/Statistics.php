@@ -31,7 +31,7 @@ class Statistics
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateTime", type="datetime")
+     * @ORM\Column(name="datetime", type="datetime")
      */
     private $dateTime;
     

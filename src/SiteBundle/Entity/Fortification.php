@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Fortification
  *
- * @ORM\Table(name="fortification")
+ * @ORM\Table(name="fortifications")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\FortificationRepository")
  */
 class Fortification
@@ -38,21 +38,21 @@ class Fortification
     /**
      * @var int
      *
-     * @ORM\Column(name="oreCost", type="integer")
+     * @ORM\Column(name="ore_cost", type="integer")
      */
     private $oreCost;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="antimaterCost", type="integer")
+     * @ORM\Column(name="antimatter_cost", type="integer")
      */
-    private $antimaterCost;
+    private $antimatterCost;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="uraniumCost", type="integer")
+     * @ORM\Column(name="uranium_cost", type="integer")
      */
     private $uraniumCost;
 
@@ -73,7 +73,7 @@ class Fortification
     /**
      * @var int
      *
-     * @ORM\Column(name="buildingTime", type="integer")
+     * @ORM\Column(name="building_time", type="integer")
      */
     private $buildingTime;
 
@@ -145,6 +145,7 @@ class Fortification
      */
     public function setOreCost($oreCost)
     {
+        if ($oreCost < 0) throw $this->createException('oreCost cannot be negative');
         $this->oreCost = $oreCost;
     
         return $this;
@@ -161,27 +162,28 @@ class Fortification
     }
 
     /**
-     * Set antimaterCost
+     * Set antimatterCost
      *
-     * @param integer $antimaterCost
+     * @param integer $antimatterCost
      *
      * @return Fortifications
      */
-    public function setAntimaterCost($antimaterCost)
+    public function setAntimatterCost($antimatterCost)
     {
-        $this->antimaterCost = $antimaterCost;
+        if ($antimatterCost < 0) throw $this->createException('antimatterCost cannot be negative');
+        $this->antimatterCost = $antimatterCost;
     
         return $this;
     }
 
     /**
-     * Get antimaterCost
+     * Get antimatterCost
      *
      * @return integer
      */
-    public function getAntimaterCost()
+    public function getAntimatterCost()
     {
-        return $this->antimaterCost;
+        return $this->antimatterCost;
     }
 
     /**
@@ -193,6 +195,7 @@ class Fortification
      */
     public function setUraniumCost($uraniumCost)
     {
+        if ($uraniumCost < 0) throw $this->createException('uraniumCost cannot be negative');
         $this->uraniumCost = $uraniumCost;
     
         return $this;
@@ -217,6 +220,7 @@ class Fortification
      */
     public function setDestination($destination)
     {
+        if ($destination < 0) throw $this->createException('destination cannot be negative');
         $this->destination = $destination;
     
         return $this;
@@ -241,6 +245,7 @@ class Fortification
      */
     public function setValue($value)
     {
+        if ($value < 0) throw $this->createException('value cannot be negative');
         $this->value = $value;
     
         return $this;
@@ -265,6 +270,7 @@ class Fortification
      */
     public function setBuildingTime($buildingTime)
     {
+        if ($buildingTime < 0) throw $this->createException('buildingTime cannot be negative');
         $this->buildingTime = $buildingTime;
     
         return $this;

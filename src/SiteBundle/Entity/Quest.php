@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Quest
  *
- * @ORM\Table(name="quest")
+ * @ORM\Table(name="quests")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\QuestRepository")
  */
 class Quest
@@ -45,49 +45,49 @@ class Quest
     /**
      * @var int
      *
-     * @ORM\Column(name="expGiven", type="integer")
+     * @ORM\Column(name="exp_given", type="integer")
      */
     private $expGiven;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="oreGiven", type="integer")
+     * @ORM\Column(name="ore_given", type="integer")
      */
     private $oreGiven;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="antimatterGiven", type="integer")
+     * @ORM\Column(name="antimatter_given", type="integer")
      */
     private $antimatterGiven;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="uraniumGiven", type="integer")
+     * @ORM\Column(name="uranium_given", type="integer")
      */
     private $uraniumGiven;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="xCoord", type="integer")
+     * @ORM\Column(name="x_coord", type="integer")
      */
     private $xCoord;
     
     /**
      * @var int
      *
-     * @ORM\Column(name="yCoord", type="integer")
+     * @ORM\Column(name="y_coord", type="integer")
      */
     private $yCoord;
     
     /**
      * @var int
      *
-     * @ORM\Column(name="xlvlRequired", type="integer")
+     * @ORM\Column(name="lvl_required", type="integer")
      */
     private $lvlRequired;
     
@@ -189,6 +189,7 @@ class Quest
      */
     public function setExpGiven($expGiven)
     {
+        if ($expGiven < 0) throw $this->createException('expGiven cannot be negative');
         $this->expGiven = $expGiven;
     
         return $this;
@@ -213,6 +214,7 @@ class Quest
      */
     public function setOreGiven($oreGiven)
     {
+        if ($oreGiven < 0) throw $this->createException('oreGiven cannot be negative');
         $this->oreGiven = $oreGiven;
     
         return $this;
@@ -237,6 +239,7 @@ class Quest
      */
     public function setAntimatterGiven($antimatterGiven)
     {
+        if ($antimatterGiven < 0) throw $this->createException('antimatterGiven cannot be negative');
         $this->antimatterGiven = $antimatterGiven;
     
         return $this;
@@ -261,6 +264,7 @@ class Quest
      */
     public function setUraniumGiven($uraniumGiven)
     {
+        if ($uraniumGiven < 0) throw $this->createException('uraniumGiven cannot be negative');
         $this->uraniumGiven = $uraniumGiven;
     
         return $this;
@@ -285,6 +289,7 @@ class Quest
      */
     public function setXCoord($xCoord)
     {
+        if ($xCoord < 0) throw $this->createException('xCoord cannot be negative');
         $this->xCoord = $xCoord;
     
         return $this;
@@ -309,6 +314,7 @@ class Quest
      */
     public function setYCoord($yCoord)
     {
+        if ($yCoord < 0) throw $this->createException('yCoord cannot be negative');
         $this->yCoord = $yCoord;
     
         return $this;
@@ -333,6 +339,7 @@ class Quest
      */
     public function setLvlRequired($lvlRequired)
     {
+        if ($lvlRequired < 0) throw $this->createException('lvlRequired cannot be negative');
         $this->lvlRequired = $lvlRequired;
     
         return $this;

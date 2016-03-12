@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PartOfUser
  *
- * @ORM\Table(name="part_of_user")
+ * @ORM\Table(name="parts_of_users")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\PartOfUserRepository")
  */
 class PartOfUser
@@ -23,13 +23,13 @@ class PartOfUser
     
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="parts")
-     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_user", referencedColumnName="id", nullable=false)
      **/
     private $user;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_part", referencedColumnName="id", nullable=false)
      **/
     private $part;
 

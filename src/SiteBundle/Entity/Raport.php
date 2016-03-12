@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Raport
  *
- * @ORM\Table(name="raport")
+ * @ORM\Table(name="raports")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\RaportRepository")
  */
 class Raport
@@ -31,13 +31,13 @@ class Raport
     /**
      * @var bool
      *
-     * @ORM\Column(name="isRead", type="boolean")
+     * @ORM\Column(name="is_read", type="boolean")
      */
     private $isRead;
     
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="raports")
-     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_user", referencedColumnName="id", nullable=false)
      **/
     private $user;
 

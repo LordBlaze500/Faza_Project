@@ -5,12 +5,12 @@ namespace SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MessagesBans
+ * MessagesBan
  *
  * @ORM\Table(name="messages_bans")
- * @ORM\Entity(repositoryClass="SiteBundle\Repository\MessagesBansRepository")
+ * @ORM\Entity(repositoryClass="SiteBundle\Repository\MessagesBanRepository")
  */
-class MessagesBans
+class MessagesBan
 {
     /**
      * @var int
@@ -23,13 +23,13 @@ class MessagesBans
     
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="blocking_player", referencedColumnName="id")
+     * @ORM\JoinColumn(name="blocking_player", referencedColumnName="id", nullable=false)
      **/
     private $blockingPlayer;
     
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="blockedPlayers")
-     * @ORM\JoinColumn(name="blocked_player", referencedColumnName="id")
+     * @ORM\JoinColumn(name="blocked_player", referencedColumnName="id", nullable=false)
      **/
     private $blockedPlayer;
 
@@ -49,7 +49,7 @@ class MessagesBans
      *
      * @param \SiteBundle\Entity\User $blockingPlayer
      *
-     * @return MessagesBans
+     * @return MessagesBan
      */
     public function setBlockingPlayer(\SiteBundle\Entity\User $blockingPlayer = null)
     {
@@ -73,7 +73,7 @@ class MessagesBans
      *
      * @param \SiteBundle\Entity\User $blockedPlayer
      *
-     * @return MessagesBans
+     * @return MessagesBan
      */
     public function setBlockedPlayer(\SiteBundle\Entity\User $blockedPlayer = null)
     {

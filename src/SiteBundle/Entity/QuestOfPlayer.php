@@ -5,12 +5,12 @@ namespace SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * QuestsOfPlayer
+ * QuestOfPlayer
  *
- * @ORM\Table(name="quests_of_player")
- * @ORM\Entity(repositoryClass="SiteBundle\Repository\QuestsOfPlayerRepository")
+ * @ORM\Table(name="quests_of_players")
+ * @ORM\Entity(repositoryClass="SiteBundle\Repository\QuestOfPlayerRepository")
  */
-class QuestsOfPlayer
+class QuestOfPlayer
 {
     /**
      * @var int
@@ -30,13 +30,13 @@ class QuestsOfPlayer
     
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="questsList")
-     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_user", referencedColumnName="id", nullable=false)
      **/
     private $user;
     
     /**
      * @ORM\ManyToOne(targetEntity="Quest")
-     * @ORM\JoinColumn(name="id_quest", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_quest", referencedColumnName="id", nullable=false)
      **/
     private $quest;
 
@@ -57,7 +57,7 @@ class QuestsOfPlayer
      *
      * @param boolean $status
      *
-     * @return QuestsOfPlayer
+     * @return QuestOfPlayer
      */
     public function setStatus($status)
     {
@@ -81,7 +81,7 @@ class QuestsOfPlayer
      *
      * @param \SiteBundle\Entity\User $user
      *
-     * @return QuestsOfPlayer
+     * @return QuestOfPlayer
      */
     public function setUser(\SiteBundle\Entity\User $user = null)
     {
@@ -105,7 +105,7 @@ class QuestsOfPlayer
      *
      * @param \SiteBundle\Entity\Quest $quest
      *
-     * @return QuestsOfPlayer
+     * @return QuestOfPlayer
      */
     public function setQuest(\SiteBundle\Entity\Quest $quest = null)
     {

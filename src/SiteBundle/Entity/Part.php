@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Part
  *
- * @ORM\Table(name="part")
+ * @ORM\Table(name="parts")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\PartRepository")
  */
 class Part
@@ -31,7 +31,7 @@ class Part
     /**
      * @var int
      *
-     * @ORM\Column(name="destination", type="integer")
+     * @ORM\Column(name="destination", type="integer", length=1)
      */
     private $destination;
 
@@ -52,35 +52,35 @@ class Part
     /**
      * @var int
      *
-     * @ORM\Column(name="oreCost", type="integer")
+     * @ORM\Column(name="ore_cost", type="integer")
      */
     private $oreCost;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="antimatterCost", type="integer")
+     * @ORM\Column(name="antimatter_cost", type="integer")
      */
     private $antimatterCost;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="uraniumCost", type="integer")
+     * @ORM\Column(name="uranium_cost", type="integer")
      */
     private $uraniumCost;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="setUpTime", type="integer")
+     * @ORM\Column(name="setup_time", type="integer")
      */
     private $setUpTime;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="levelRequired", type="integer")
+     * @ORM\Column(name="level_required", type="integer")
      */
     private $levelRequired;
 
@@ -128,6 +128,7 @@ class Part
      */
     public function setDestination($destination)
     {
+        if ($destination < 0) throw $this->createException('destination cannot be negative');
         $this->destination = $destination;
     
         return $this;
@@ -152,6 +153,7 @@ class Part
      */
     public function setValue($value)
     {
+        if ($value < 0) throw $this->createException('value cannot be negative');
         $this->value = $value;
     
         return $this;
@@ -200,6 +202,7 @@ class Part
      */
     public function setOreCost($oreCost)
     {
+        if ($oreCost < 0) throw $this->createException('oreCost cannot be negative');
         $this->oreCost = $oreCost;
     
         return $this;
@@ -224,6 +227,7 @@ class Part
      */
     public function setAntimatterCost($antimatterCost)
     {
+        if ($antimatterCost < 0) throw $this->createException('antimatterCost cannot be negative');
         $this->antimatterCost = $antimatterCost;
     
         return $this;
@@ -248,6 +252,7 @@ class Part
      */
     public function setUraniumCost($uraniumCost)
     {
+        if ($uraniumCost < 0) throw $this->createException('uraniumCost cannot be negative');
         $this->uraniumCost = $uraniumCost;
     
         return $this;
@@ -272,6 +277,7 @@ class Part
      */
     public function setSetUpTime($setUpTime)
     {
+        if ($setUpTime < 0) throw $this->createException('setUpTime cannot be negative');
         $this->setUpTime = $setUpTime;
     
         return $this;
@@ -296,6 +302,7 @@ class Part
      */
     public function setLevelRequired($levelRequired)
     {
+        if ($levelRequired < 0) throw $this->createException('levelRequired cannot be negative');
         $this->levelRequired = $levelRequired;
     
         return $this;

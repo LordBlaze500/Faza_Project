@@ -5,9 +5,9 @@ namespace SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FortificationsOnPlanet
+ * FortificationOnPlanet
  *
- * @ORM\Table(name="fortification_on_planet")
+ * @ORM\Table(name="fortifications_on_planets")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\FortificationOnPlanetRepository")
  */
 class FortificationOnPlanet
@@ -24,19 +24,19 @@ class FortificationOnPlanet
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="builtTime", type="datetime")
+     * @ORM\Column(name="built_time", type="datetime")
      */
     private $builtTime;
     
     /**
      * @ORM\ManyToOne(targetEntity="Planet", inversedBy="fortificationOnPlanet")
-     * @ORM\JoinColumn(name="id_planet", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_planet", referencedColumnName="id", nullable=false)
      */
     private $planet;
     
     /**
      * @ORM\ManyToOne(targetEntity="Fortification")
-     * @ORM\JoinColumn(name="id_fortification", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_fortification", referencedColumnName="id", nullable=false)
      */
     private $fortification;
     

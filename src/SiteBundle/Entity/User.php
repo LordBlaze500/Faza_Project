@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\UserRepository")
  */
 class User implements UserInterface, \Serializable
@@ -82,126 +82,126 @@ class User implements UserInterface, \Serializable
     /**
      * @var int
      *
-     * @ORM\Column(name="currentHp", type="integer")
+     * @ORM\Column(name="current_hp", type="integer", length=1)
      */
     private $currentHp;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="maxHp", type="integer")
+     * @ORM\Column(name="max_hp", type="integer")
      */
     private $maxHp;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="attactHero", type="integer")
+     * @ORM\Column(name="attack_hero", type="integer")
      */
-    private $attactHero;
+    private $attackHero;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="defenceHero", type="integer")
+     * @ORM\Column(name="defence_hero", type="integer")
      */
     private $defenceHero;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="aggressionHero", type="integer")
+     * @ORM\Column(name="aggression_hero", type="integer")
      */
     private $aggressionHero;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="agilityHero", type="integer")
+     * @ORM\Column(name="agility_hero", type="integer")
      */
     private $agilityHero;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="precisionHero", type="integer")
+     * @ORM\Column(name="precision_hero", type="integer")
      */
     private $precisionHero;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="speedShip", type="integer")
+     * @ORM\Column(name="speed_ship", type="integer")
      */
     private $speedShip;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="attackShip", type="integer")
+     * @ORM\Column(name="attack_ship", type="integer")
      */
     private $attackShip;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="defenceShip", type="integer")
+     * @ORM\Column(name="defence_ship", type="integer")
      */
     private $defenceShip;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="aggressionShip", type="integer")
+     * @ORM\Column(name="aggression_ship", type="integer")
      */
     private $aggressionShip;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="precisionShip", type="integer")
+     * @ORM\Column(name="precision_ship", type="integer")
      */
     private $precisionShip;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="agilityShip", type="integer")
+     * @ORM\Column(name="agility_ship", type="integer")
      */
     private $agilityShip;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="oreOwned", type="integer")
+     * @ORM\Column(name="ore_owned", type="integer")
      */
     private $oreOwned;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="antimatterOwned", type="integer")
+     * @ORM\Column(name="antimatter_owned", type="integer")
      */
     private $antimatterOwned;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="uraniumOwned", type="integer")
+     * @ORM\Column(name="uranium_owned", type="integer")
      */
     private $uraniumOwned;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="xCoord", type="integer")
+     * @ORM\Column(name="x_coord", type="integer")
      */
     private $xCoord;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="yCoord", type="integer")
+     * @ORM\Column(name="y_coord", type="integer")
      */
     private $yCoord;
 
@@ -215,66 +215,66 @@ class User implements UserInterface, \Serializable
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="lastLoginData", type="datetime")
+     * @ORM\Column(name="last_login_data", type="datetime")
      */
     private $lastLoginData;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="activationHash", type="string", length=128)
+     * @ORM\Column(name="activation_hash", type="string", length=128)
      */
     private $activationHash;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_attack_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_attack_part", referencedColumnName="id", nullable=false)
      **/
     private $attackPart;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_defence_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_defence_part", referencedColumnName="id", nullable=false)
      **/
     private $defencePart;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_precise_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_precise_part", referencedColumnName="id", nullable=false)
      **/
     private $precisePart;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_agility_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_agility_part", referencedColumnName="id", nullable=false)
      **/
     private $agilityPart;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_aggression_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_aggression_part", referencedColumnName="id", nullable=false)
      **/
     private $aggressionPart;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_hp_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_hp_part", referencedColumnName="id", nullable=false)
      **/
     private $hpPart;
     
     /**
      * @ORM\ManyToOne(targetEntity="Part")
-     * @ORM\JoinColumn(name="id_speed_part", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_speed_part", referencedColumnName="id", nullable=false)
      **/
     private $speedPart;
     
     /**
-     * @ORM\OneToMany(targetEntity="PartOfuser", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="PartOfUser", mappedBy="user")
      **/
     private $parts;
     
     /**
-     * @ORM\OneToMany(targetEntity="MessagesBans", mappedBy="blockedPlayer")
+     * @ORM\OneToMany(targetEntity="MessagesBan", mappedBy="blockedPlayer")
      **/
     private $blockedPlayers;
     
@@ -304,7 +304,7 @@ class User implements UserInterface, \Serializable
     private $messages;
     
     /**
-     * @ORM\OneToMany(targetEntity="QuestsOfPlayer", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="QuestOfPlayer", mappedBy="user")
      **/
     private $questsList;
     
@@ -458,6 +458,7 @@ class User implements UserInterface, \Serializable
      */
     public function setLevel($level)
     {
+        if ($level < 1) throw $this->createException("level cannot be less than 1");
         $this->level = $level;
     
         return $this;
@@ -482,6 +483,7 @@ class User implements UserInterface, \Serializable
      */
     public function setExp($exp)
     {
+        if ($exp < 0) throw $this->createException("exp cannot be negative");
         $this->exp = $exp;
     
         return $this;
@@ -506,6 +508,7 @@ class User implements UserInterface, \Serializable
      */
     public function setClass($class)
     {
+        if ($class < 0) throw $this->createException("class cannot be negative");
         $this->class = $class;
     
         return $this;
@@ -530,6 +533,7 @@ class User implements UserInterface, \Serializable
      */
     public function setCurrentHp($currentHp)
     {
+        if ($currentHp < 0) throw $this->createException("currentHp cannot be negative");
         $this->currentHp = $currentHp;
     
         return $this;
@@ -554,6 +558,7 @@ class User implements UserInterface, \Serializable
      */
     public function setMaxHp($maxHp)
     {
+        if ($maxHp < 0) throw $this->createException("maxHp cannot be negative");
         $this->maxHp = $maxHp;
     
         return $this;
@@ -570,27 +575,28 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set attactHero
+     * Set attackHero
      *
-     * @param integer $attactHero
+     * @param integer $attackHero
      *
      * @return User
      */
-    public function setAttactHero($attactHero)
+    public function setAttackHero($attackHero)
     {
-        $this->attactHero = $attactHero;
+        if ($attackHero < 0) throw $this->createException("attackHero cannot be negative");
+        $this->attackHero = $attackHero;
     
         return $this;
     }
 
     /**
-     * Get attactHero
+     * Get attackHero
      *
      * @return integer
      */
-    public function getAttactHero()
+    public function getAttackHero()
     {
-        return $this->attactHero;
+        return $this->attackHero;
     }
 
     /**
@@ -602,6 +608,7 @@ class User implements UserInterface, \Serializable
      */
     public function setDefenceHero($defenceHero)
     {
+        if ($defenceHero < 0) throw $this->createException("defenceHero cannot be negative");
         $this->defenceHero = $defenceHero;
     
         return $this;
@@ -626,6 +633,7 @@ class User implements UserInterface, \Serializable
      */
     public function setAggressionHero($aggressionHero)
     {
+        if ($aggressionHero < 0) throw $this->createException("aggressionHero cannot be negative");
         $this->aggressionHero = $aggressionHero;
     
         return $this;
@@ -650,6 +658,7 @@ class User implements UserInterface, \Serializable
      */
     public function setAgilityHero($agilityHero)
     {
+        if ($agilityHero < 0) throw $this->createException("agilityHero cannot be negative");
         $this->agilityHero = $agilityHero;
     
         return $this;
@@ -674,6 +683,7 @@ class User implements UserInterface, \Serializable
      */
     public function setPrecisionHero($precisionHero)
     {
+        if ($precisionHero < 0) throw $this->createException("precisionHero cannot be negative");
         $this->precisionHero = $precisionHero;
     
         return $this;
@@ -698,6 +708,7 @@ class User implements UserInterface, \Serializable
      */
     public function setSpeedShip($speedShip)
     {
+        if ($speedShip < 0) throw $this->createException("speedShip cannot be negative");
         $this->speedShip = $speedShip;
     
         return $this;
@@ -722,6 +733,7 @@ class User implements UserInterface, \Serializable
      */
     public function setAttackShip($attackShip)
     {
+        if ($attackShip < 0) throw $this->createException("attackShip cannot be negative");
         $this->attackShip = $attackShip;
     
         return $this;
@@ -746,6 +758,7 @@ class User implements UserInterface, \Serializable
      */
     public function setDefenceShip($defenceShip)
     {
+        if ($defenceShip < 0) throw $this->createException("defenceShip cannot be negative");
         $this->defenceShip = $defenceShip;
     
         return $this;
@@ -770,6 +783,7 @@ class User implements UserInterface, \Serializable
      */
     public function setAggressionShip($aggressionShip)
     {
+        if ($aggressionShip < 0) throw $this->createException("aggressionShip cannot be negative");
         $this->aggressionShip = $aggressionShip;
     
         return $this;
@@ -794,6 +808,7 @@ class User implements UserInterface, \Serializable
      */
     public function setPrecisionShip($precisionShip)
     {
+        if ($precisionShip < 0) throw $this->createException("precisionShip cannot be negative");
         $this->precisionShip = $precisionShip;
     
         return $this;
@@ -818,6 +833,7 @@ class User implements UserInterface, \Serializable
      */
     public function setAgilityShip($agilityShip)
     {
+        if ($agilityShip < 0) throw $this->createException("agilityShip cannot be negative");
         $this->agilityShip = $agilityShip;
     
         return $this;
@@ -842,6 +858,7 @@ class User implements UserInterface, \Serializable
      */
     public function setOreOwned($oreOwned)
     {
+        if ($oreOwned < 0) throw $this->createException("oreOwned cannot be negative");
         $this->oreOwned = $oreOwned;
     
         return $this;
@@ -866,6 +883,7 @@ class User implements UserInterface, \Serializable
      */
     public function setAntimatterOwned($antimatterOwned)
     {
+        if ($antimatterOwned < 0) throw $this->createException("antimatterOwned cannot be negative");
         $this->antimatterOwned = $antimatterOwned;
     
         return $this;
@@ -890,6 +908,7 @@ class User implements UserInterface, \Serializable
      */
     public function setUraniumOwned($uraniumOwned)
     {
+        if ($uraniumOwned < 0) throw $this->createException("uraniumOwned cannot be negative");
         $this->uraniumOwned = $uraniumOwned;
     
         return $this;
@@ -914,6 +933,7 @@ class User implements UserInterface, \Serializable
      */
     public function setXCoord($xCoord)
     {
+        if ($xCoord < 0) throw $this->createException("xCoord cannot be negative");
         $this->xCoord = $xCoord;
     
         return $this;
@@ -938,6 +958,7 @@ class User implements UserInterface, \Serializable
      */
     public function setYCoord($yCoord)
     {
+        if ($yCoord < 0) throw $this->createException("yCoord cannot be negative");
         $this->yCoord = $yCoord;
     
         return $this;

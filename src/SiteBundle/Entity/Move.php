@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Move
  *
- * @ORM\Table(name="move")
+ * @ORM\Table(name="moves")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\MoveRepository")
  */
 class Move
@@ -31,41 +31,41 @@ class Move
     /**
      * @var int
      *
-     * @ORM\Column(name="ySource", type="integer")
+     * @ORM\Column(name="y_source", type="integer")
      */
     private $ySource;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="xDest", type="integer")
+     * @ORM\Column(name="x_dest", type="integer")
      */
     private $xDest;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="yDest", type="integer")
+     * @ORM\Column(name="y_dest", type="integer")
      */
     private $yDest;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="arrivalTime", type="datetime")
+     * @ORM\Column(name="arrival_time", type="datetime")
      */
     private $arrivalTime;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="type", type="integer")
+     * @ORM\Column(name="type", type="integer", length=1)
      */
     private $type;
     
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="moves")
-     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_user", referencedColumnName="id", nullable=false)
      **/
     private $user;
 
@@ -89,6 +89,7 @@ class Move
      */
     public function setXSource($xSource)
     {
+        if ($xSource < 0) throw $this->createException('xSource cannot be negative');
         $this->xSource = $xSource;
     
         return $this;
@@ -113,6 +114,7 @@ class Move
      */
     public function setYSource($ySource)
     {
+        if ($ySource < 0) throw $this->createException('ySource cannot be negative');
         $this->ySource = $ySource;
     
         return $this;
@@ -137,6 +139,7 @@ class Move
      */
     public function setXDest($xDest)
     {
+        if ($xDest < 0) throw $this->createException('xDest cannot be negative');
         $this->xDest = $xDest;
     
         return $this;
@@ -161,6 +164,7 @@ class Move
      */
     public function setYDest($yDest)
     {
+        if ($yDest < 0) throw $this->createException('yDest cannot be negative');
         $this->yDest = $yDest;
     
         return $this;
@@ -209,6 +213,7 @@ class Move
      */
     public function setType($type)
     {
+        if ($type < 0) throw $this->createException('type cannot be negative');
         $this->type = $type;
     
         return $this;

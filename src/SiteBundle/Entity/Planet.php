@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Planet
  *
- * @ORM\Table(name="planet")
+ * @ORM\Table(name="planets")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\PlanetRepository")
  */
 class Planet
@@ -46,28 +46,28 @@ class Planet
     /**
      * @var int
      *
-     * @ORM\Column(name="oreSupply", type="integer")
+     * @ORM\Column(name="ore_supply", type="integer")
      */
     private $oreSupply;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="antimatterSupply", type="integer")
+     * @ORM\Column(name="antimatter_supply", type="integer")
      */
     private $antimatterSupply;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="uraniumSupply", type="integer")
+     * @ORM\Column(name="uranium_supply", type="integer")
      */
     private $uraniumSupply;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="resupplyTime", type="datetime")
+     * @ORM\Column(name="resupply_time", type="datetime")
      */
     private $resupplyTime;
     
@@ -100,6 +100,7 @@ class Planet
      */
     public function setXCoord($xCoord)
     {
+        if ($xCoord < 0) throw $this->createException('xCoord cannot be negative');
         $this->xCoord = $xCoord;
     
         return $this;
@@ -124,6 +125,7 @@ class Planet
      */
     public function setYCoord($yCoord)
     {
+        if ($yCoord < 0) throw $this->createException('yCoord cannot be negative');
         $this->yCoord = $yCoord;
     
         return $this;
@@ -172,6 +174,7 @@ class Planet
      */
     public function setOreSupply($oreSupply)
     {
+        if ($oreSupply < 0) throw $this->createException('oreSupply cannot be negative');
         $this->oreSupply = $oreSupply;
     
         return $this;
@@ -196,6 +199,7 @@ class Planet
      */
     public function setAntimatterSupply($antimatterSupply)
     {
+        if ($antimatterSupply < 0) throw $this->createException('antimatterSupply cannot be negative');
         $this->antimatterSupply = $antimatterSupply;
     
         return $this;
@@ -220,6 +224,7 @@ class Planet
      */
     public function setUraniumSupply($uraniumSupply)
     {
+        if ($uraniumSupply < 0) throw $this->createException('uraniumSupply cannot be negative');
         $this->uraniumSupply = $uraniumSupply;
     
         return $this;

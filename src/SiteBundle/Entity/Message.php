@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Message
  *
- * @ORM\Table(name="message")
+ * @ORM\Table(name="messages")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\MessageRepository")
  */
 class Message
@@ -22,34 +22,88 @@ class Message
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="id_sender", referencedColumnName="id", nullable=false)
+     */
+    private $idSender;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="id_receiver", referencedColumnName="id", nullable=false)
+     */
+    private $idReceiver;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=500)
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="isRead", type="boolean")
+     * @ORM\Column(name="is_read", type="boolean")
      */
     private $isRead;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="messages")
-     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
-     **/
-    private $user;
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set idSender
+     *
+     * @param integer $idSender
+     *
+     * @return Message
+     */
+    public function setIdSender($idSender)
+    {
+        $this->idSender = $idSender;
+
+        return $this;
+    }
+
+    /**
+     * Get idSender
+     *
+     * @return int
+     */
+    public function getIdSender()
+    {
+        return $this->idSender;
+    }
+
+    /**
+     * Set idReceiver
+     *
+     * @param integer $idReceiver
+     *
+     * @return Message
+     */
+    public function setIdReceiver($idReceiver)
+    {
+        $this->idReceiver = $idReceiver;
+
+        return $this;
+    }
+
+    /**
+     * Get idReceiver
+     *
+     * @return int
+     */
+    public function getIdReceiver()
+    {
+        return $this->idReceiver;
     }
 
     /**
@@ -62,7 +116,7 @@ class Message
     public function setContent($content)
     {
         $this->content = $content;
-    
+
         return $this;
     }
 
@@ -86,41 +140,18 @@ class Message
     public function setIsRead($isRead)
     {
         $this->isRead = $isRead;
-    
+
         return $this;
     }
 
     /**
      * Get isRead
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsRead()
     {
         return $this->isRead;
     }
-
-    /**
-     * Set user
-     *
-     * @param \SiteBundle\Entity\User $user
-     *
-     * @return Message
-     */
-    public function setUser(\SiteBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-    
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \SiteBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }
+
