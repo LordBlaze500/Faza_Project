@@ -161,3 +161,9 @@ b6f0ce,::1,POST,http://localhost/Faza_Project/web/app_dev.php/register,145806320
 781a9e,::1,POST,http://localhost/Faza_Project/web/app_dev.php/register,1458063540,,200
 48f550,::1,POST,http://localhost/Faza_Project/web/app_dev.php/register,1458063711,,200
 cee4eb,::1,GET,http://localhost/Faza_Project/web/app_dev.php/register,1458063729,,200
+a24ca8,::1,GET,http://localhost/Faza_Project/web/app_dev.php/,1458065165,f9c52a,200
+f9c52a,::1,GET,http://localhost/Faza_Project/web/app_dev.php/,1458065165,,404
+4b13f0,::1,GET,http://localhost/Faza_Project/web/app_dev.php/register,1458065167,,200
+7804db,::1,POST,http://localhost/Faza_Project/web/app_dev.php/register,1458065187,,200
+f36f4e,::1,POST,http://localhost/Faza_Project/web/app_dev.php/register,1458065193,,200
+810724,::1,POST,http://localhost/Faza_Project/web/app_dev.php/register,1458065200,,200

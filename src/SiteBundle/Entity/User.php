@@ -4,6 +4,7 @@ namespace SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -12,6 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\UserRepository")
+ * @UniqueEntity(fields={"username"}, message="Login został już wykorzystany")
+ * @UniqueEntity(fields={"email"}, message="Email istnieje już w bazie danych.")
  */
 class User implements UserInterface, \Serializable
 {
