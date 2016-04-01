@@ -1,1 +1,66 @@
-Jakies notatki od LordBlaze500
+Nazwa / Funkcjalności / Ocb
+Index / Logowanie / Dodatkowe info o co kaman
+Register / Rejestracja / ...
+Main / Print statystyk postaci i statku / Menu odnosnikow do mapy, questow, sklepu, wiadomosci, statystyk, raportow, wyloguj, budowa fortyfikacji, surowce (u góry), ranking, lista pobliskich ludzi (radar), jesli_radar na planecie to info o atakach, znajdz gracza...
+Map / widocznosc 10x10 cala odkryta / JS/AJAX mozna przewijac, ogolnie mapa 100x100
+Quests / jakie masz zlecone, gdzie mozna dostac, jakie sa nagrody / lista questow zrobionych , w trakcie robienia i do zrobienia
+Shop / kup ulepszenia do statku / jakie masz rzeczy, jakie mozna kupic, co to daje
+Messages / odbierz i wyslij wiadomosc, zablokuj gracza, oznacz jako przeczytane / ikonka okresla czy masz nowe wiadomosci
+Statistics / zobacz swoje statystyki walk / ...
+Raports / zobacz, usun raport, oznacz jako przeczytane / ...
+Fortifications_building / kup budynki, czas budowy, kolejka budowy / ...
+Ranking / zobacz top, zobacz swoja pozycje +-10 innych, odwroc sortowanie / ...
+Radar / kto jest na pobliskich planetach, kliknij atak/wiadomosc / ...
+Radar_defense / jesli jest radar na planecie to info o nadchodzacych atakach: skad idzie, kiedy dojdzie / ...
+Current_player / jakie fortyfikacje sa na tej planecie, ile tam jest surowki, kiedy sie ona odnawia
+Player_info / login, data logowania, ranking, napisz_wiadomosc
+
+Logowanie - u góry banner, po lewej opis, po prawej logowanie, na dole screeny
+Rejestracja - banner u góry, formularz rejestracji, walidacja po obu stronach (klient/serwer), wysyłanie maila z linkem aktywacyjnym, kliknięcie go zmienia bit active w tabeli players na 1
+Main - u góry ile masz surowców, po lewej menu ze wszystkimi opcjami, poniżej menu mała rameczka z text + button znajdz gracza, blisko center po lewej avatar postaci i jej statystyki, a po prawej rysunek statku i jego staty
+Shop - zakladka z obecnym stuffem jaki masz, jaki masz zamontowane, osobna zakladka na czesci jakie mozesz kupic
+
+///////////////////////////////////////////////
+BATTLE ENGINE
+
+Parametry:
+Każdy zaczyna od levelu 1. 
+Na początku wszystkie części statku są na poziomie 1.
+Wszystkie statystyki herosa sa na poczatku = 1. Jednakze na poczatku dostaje sie 5-10 (?) pkt statystyk, ktore mozna 
+rozdac na statystyki herosa.
+Statystyki zawieraja sie w przedziale 1-99. Co level dostajemy kilka punktów, które wydajemy na statystyki.
+Statystyki statku zaleza tylko od obecnie zamontowanych czesci. Mimo, ze statystyki rosna liniowo w przedziale 1-99 to ich efekt
+nie jest liniowy, tzn. jest różnica między np. 5 a 6 a 35 a 36. Różne statystyki mają różne efekty, jedne są bardziej przydatne na 
+początku gry inne w późniejszych etapach.
+HP zależy tylko od statku. Rośnie co 50 między kolejnymi poziomami części.
+Speed zależy tylko od statku.
+Jako że walka zawsze dzieje się w układzie atakujący planetę - jej obrońca to do systemu walki trzeba jeszcze wymyślić
+fortyfikację i je dodać.
+Zwycięzca walki zgarnia tyle expa ile dmg zadał. Przegrany zgarnia exp = 1/3 zadanego dmga.
+Mimo że w symulatorze mozna ustawic wszystkie staty na 99 to w praktyce bedzie to niemozliwe do uzyskania samym expem, bo liczba punktow uzyskanych po levelu do rozdania bedzie mniejsza niz liczba statystyk. Zalecam dodanie questow, ktore np. beda powiekszac statystyki (np. kosmiczny łowca zleca ci rozwalenie czegoś a w zamian obiecuje podzielenie sie taktykami walki, ktore zwieksza obrone twojego bohatera)
+Walka opiera sie na liczbach float ale do bazy beda trafiac tylko liczby zaokraglone do int.
+
+Ostateczna statystyka = statystyka herosa + statystyka statku
+Z wyjątkiem HP i Speed.
+
+Atak - zwiększa zadawane dmg
+Obrona - zmniejsza otrzymywane dmg
+Aggression - zwieksza prawdopodobienstwo wykonania dwóch ataków z rzędu
+Precision - zwiększa szanse na trafienie (pudło = 0 dmg zadane)
+Agility - zwiększa szanse na unik ataku wroga
+Speed - w grze decyduje o szybkosci poruszania sie po mapie, w walce wiekszy speed okresla kto zaczyna walke (w przypadku remisu zaczyna atakujący)
+HP - gdy zostanie zbite do 0 lub mniej to zostajesz pokonany (w praktyce do bazy zostanie wpisane ze masz 1 HP bo mialo nie byc niszczenia na dobre nikogo)
+
+max_HP - zależne od <<KADŁUBA>> statku
+speed - zależne od <<SILNIKA>> statku
+attack_hero - zależne od <<UMIEJĘTNOŚCI_KONTROLI_DZIAL>> herosa
+attack_ship - zależne od <<DZIAŁ>> statku
+defence_hero - zależne od <<UMIEJETNOSCI_KONTROLI_TARCZ>> herosa
+defence_ship - zależne od <<TARCZ>> statku
+agility_hero - zalezne od <<UMIEJETNOSCI_STEROWANIA_STATKIEM>> herosa
+agility_ship - zalezne od <<STERU>> statku
+precision_hero - zalezne od <<UMIEJETNOSCI_PRECYZYJNEGO_STRZELANIA>> herosa
+precision_ship - zalezne od <<PRZYRZADOW_CELOWNICZYCH>> statku
+aggression_hero - zalezne od <<AGRESJI>> herosa
+aggression_ship - zalezne od <<NARZADOW_DO_LADOWANIA_DZIAL>> statku (zeby oddac podwojny strzal dziala
+musza szybko sie naladowac/przeladowac/ostygnac itp)

@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test silnika walki</title>
+        <script src="{{ asset('js/jquery-2.2.2.min.js') }}"></script>
+    </head>
+    <body>
+        <form method="POST">
+            <table border="1">
+            <tr>
+            <td>
+            <h2>Gracz 1</h2>
+            <table>
+                <tr>
+                    <td><label>Attack Hero 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="attackHero1" name="attackHero1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Attack Ship 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="attackShip1" name="attackShip1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Defence Hero 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="defenceHero1" name="defenceHero1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Defence Ship 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="defenceShip1" name="defenceShip1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Aggression Hero 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="aggressionHero1" name="aggressionHero1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Aggression Ship 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="aggressionShip1" name="aggressionShip1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Precision Hero 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="precisionHero1" name="precisionHero1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Precision Ship 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="precisionShip1" name="precisionShip1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Agility Hero 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="agilityHero1" name="agilityHero1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Agility Ship 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="agilityShip1" name="agilityShip1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>Speed 1:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="speed1" name="speed1" class="player1"></td>
+                </tr>
+                <tr>
+                    <td><label>HP 1:</label></td>
+                    <td><input type="number" min="100" max="5000" value="100" id="HP1" name="HP1" class="player1"></td>
+                </tr>
+            </table>
+            </td>
+            <td>
+            <h2>Gracz 2</h2>
+            <table>
+                <tr>
+                    <td><label>Attack Hero 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="attackHero2" name="attackHero2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Attack Ship 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="attackShip2" name="attackShip2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Defence Hero 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="defenceHero2" name="defenceHero2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Defence Ship 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="defenceShip2" name="defenceShip2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Aggression Hero 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="aggressionHero2" name="aggressionHero2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Aggression Ship 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="aggressionShip2" name="aggressionShip2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Precision Hero 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="precisionHero2" name="precisionHero2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Precision Ship 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="precisionShip2" name="precisionShip2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Agility Hero 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="agilityHero2" name="agilityHero2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Agility Ship 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="agilityShip2" name="agilityShip2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>Speed 2:</label></td>
+                    <td><input type="number" min="1" max="99" value="1" id="speed2" name="speed2" class="player2"></td>
+                </tr>
+                <tr>
+                    <td><label>HP 2:</label></td>
+                    <td><input type="number" min="100" max="5000" value="100" id="HP2" name="HP2" class="player2"></td>
+                </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            <input type="checkbox" id="fullBattle" name="fullBattle"><label for="fullBattle">Cała walka</label>
+            <input type="submit" id="OK" value="OK" name="OK" style="width: 300px">
+        </form>
+        <label for="id1set">Ustaw statystyki gracza 1:</label><input type="number" name="id1set" min="1" max="99" value="1" id="player1LevelValue"><input type="button" id="player1LevelSet" value="Ustaw"><br/>
+        <label for="id2set">Ustaw statystyki gracza 2:</label><input type="number" name="id2set" min="1" max="99" value="1" id="player2LevelValue"><input type="button" id="player2LevelSet" value="Ustaw"><br/>
+        {% if result is defined %}
+            <h4>Wynik walki:</h4>
+            Wygrał gracz nr: {{ result[0][0] }}<br/>
+            Gracz nr 1 zyskał {{ result[0][1] }} punktów doświadczenia<br/>
+            Gracz nr 2 zyskał {{ result[0][2] }} punktów doświadczenia<br/>
+            Gracz nr 1 ma teraz {{ result[0][3] }} HP <br/>
+            Gracz nr 2 ma teraz {{ result[0][4] }} HP <br/>
+        {% endif %}
+        {% if fullBattle is defined %}
+            <h4>Przebieg walki:</h4>
+            {% for res in result | slice(1, result|length) %}
+                <b>Tura nr {{ loop.index }}</b><br/>
+                Zaatakował gracz nr {{ res[0] }}<br/>
+                {% if res[1] > 0 %}
+                    Zadał on {{ res[1] }} punktów obrażeń<br/>
+                {% else %}
+                    Nie trafił<br/>
+                {% endif %}
+                {% if res[2] == true %}
+                    To był podwójny atak<br/>
+                {% endif %}
+                Gracz 1 HP: {{ res[3] }}<br/>
+                Gracz 2 HP: {{ res[4] }}<br/>
+            {% endfor %}
+            <b>KONIEC WALKI</b><br/>
+        {% endif %}
+        <script>
+            $('#player1LevelSet').click(function()
+            {
+                var val = $('#player1LevelValue').val();
+                if (val < 1 || val > 99)
+                {
+                    alert('Podaj wartość z przedziału 1-99');
+                }
+                else
+                {
+                    $('.player1').val(val);
+                    $('#HP1').val(50 + 50 * val);
+                }
+            });
+            $('#player2LevelSet').click(function()
+            {
+                var val = $('#player2LevelValue').val();
+                if (val < 1 || val > 99)
+                {
+                    alert('Podaj wartość z przedziału 1-99');
+                }
+                else
+                {
+                    $('.player2').val(val);
+                    $('#HP2').val(50 + 50 * val);
+                }
+            });
+        </script>
+    </body>
+</html>
