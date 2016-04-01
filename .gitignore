@@ -42,8 +42,4 @@
 /composer.phar
 
 # Backup entities generated with doctrine:generate:entities command
-<<<<<<< HEAD
 */Entity/*~
-=======
-*/Entity/*~
->>>>>>> master
