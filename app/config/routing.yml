@@ -1,4 +1,0 @@
-site:
-    resource: "@SiteBundle/Controller/"
-    type:     annotation
-    prefix:   /

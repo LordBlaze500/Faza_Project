@@ -1,9 +1,0 @@
-{% extends "base.html.twig" %}
-{% block body %}
-    <h2 class="left-header" >Rejestracja</h2>
-    <div class="col-md-5 col-xs-12">
-        <form action="{{ path("site_user_register") }}" method="post" >
-            {{ form(form,  {'attr': {'class': 'left-form'}}) }}
-        </form>
-    </div>
-{% endblock %}
