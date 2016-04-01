@@ -100,6 +100,20 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // testbattleengine_default_index
+        if ($pathinfo === '/testEngine') {
+            return array (  '_controller' => 'testBattleEngineBundle\\Controller\\DefaultController::indexAction',  '_route' => 'testbattleengine_default_index',);
+        }
+
+        // site_default_index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'site_default_index');
+            }
+
+            return array (  '_controller' => 'SiteBundle\\Controller\\DefaultController::indexAction',  '_route' => 'site_default_index',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
