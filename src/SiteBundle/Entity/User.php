@@ -4,13 +4,17 @@ namespace SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  *
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="SiteBundle\Repository\UserRepository")
+ * @UniqueEntity(fields={"username"}, message="Login został już wykorzystany")
+ * @UniqueEntity(fields={"email"}, message="Email istnieje już w bazie danych.")
  */
 class User implements UserInterface, \Serializable
 {
@@ -27,6 +31,12 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=30, unique=true)
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 30,
+     *      minMessage = "Login musi się składać minimum z {{ limit }} znaków.",
+     *      maxMessage = "Login nie może przekraczać {{ limit }} znaków."
+     * )
      */
     private $username;
 
@@ -34,6 +44,10 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=128)
+     * @Assert\Length(
+     *      min = 6,
+     *      minMessage = "Hasło musi się składać minimum z {{ limit }} znaków.",
+     * )
      */
     private $password;
 
@@ -48,6 +62,10 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50, unique=true)
+     * @Assert\Email(
+     *     message = "'{{ value }}' nie jest adresem e-mail.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
